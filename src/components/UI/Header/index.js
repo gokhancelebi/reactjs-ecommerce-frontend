@@ -10,7 +10,7 @@ const Header = (props) => {
         <div className='flex flex-col gap-5'>
             <div className="flex justify-between items-center">
                 <div className="header__logo">
-                    <h1>CODE<b>RATIO</b></h1>
+                    <h1>DEMO<b>COMMERCE</b></h1>
                 </div>
                 <div className="header__menu flex gap-5 justify-center items-center">
                     <div className="search-bar">
