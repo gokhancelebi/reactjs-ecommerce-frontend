@@ -27,14 +27,14 @@ const Header = (props) => {
                                 </Link>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <img src={wishListIcon} alt=""/>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <img src={shoppigBagIcon} alt=""/>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
