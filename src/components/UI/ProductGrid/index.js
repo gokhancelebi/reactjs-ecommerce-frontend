@@ -1,13 +1,11 @@
 import {useState} from "react";
 
 const ProductGrid = (props) => {
-    const [products, setProducts] = useState(props.products);
-    const [filteredProducts, setFilteredProducts] = useState([]);
 
     return (
         <div className='grid gap-10 grid-cols-4'>
             {
-                products.map((product, index) => {
+                props.products.map((product, index) => {
                     return (
                         <div key={index}>
                             <div className="w-full">
