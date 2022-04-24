@@ -84,7 +84,9 @@ const Home = (props) => {
         <>
             <Container>
                 <Header/>
-                <ProductGrid products={productList}/>
+                <ProductGrid title='En Son Eklenenler' products={productList}  col='5' limit='5'/>
+                <ProductGrid title='Öne Çıkanlar' products={productList}  col='5' limit='5'/>
+                <ProductGrid title='İndirimdekiler' products={productList}  col='5' limit='5'/>
             </Container>
             <Footer/>
         </>

@@ -15,19 +15,22 @@ const Header = (props) => {
 
     return (
         <div className='flex flex-col gap-5'>
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
                 <div className="header__logo">
                     <h1>DEMO<b>COMMERCE</b></h1>
                 </div>
-                <div className="header__menu flex gap-5 justify-center items-center">
-                    <div className="search-bar">
-                        <input type="text" placeholder="Search"  className='border border-1 border-black p-0.5'/>
-                        <button>
-                            <i className="fas fa-search"></i>
-                        </button>
+                <div className="header__menu flex flex-col md:flex-row justify-center md:justify-between gap-5 items-center">
+                    <div className="search-bar hidden md:block">
+                        <input type="text" placeholder="Search"  className='border border-1 border-black p-0.5 px-2'/>
+                        {/*<button>*/}
+                        {/*    <i className="fas fa-search"></i>*/}
+                        {/*</button>*/}
                     </div>
                     <div className="header__menu-items">
                         <ul className='flex gap-5'>
+                            <li className='md:hidden'>
+                                <i className="fas fa-search"></i>
+                            </li>
                             <li>
                                 <Link to={myAccountLink}>
                                     <img src={myAccountIcon} alt=""/>
@@ -48,7 +51,7 @@ const Header = (props) => {
                 </div>
             </div>
             <div className="header__navigation">
-                <ul className="flex gap-10 justify-start p-2 px-4 bg-black text-white">
+                <ul className="flex gap-10 justify-start p-2 px-4 bg-black text-white overflow-hidden scroll-auto">
                     <li>
                         <Link to="/">Home</Link>
                     </li>
