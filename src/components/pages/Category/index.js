@@ -91,7 +91,7 @@ const Category = (props) => {
                 </h1>
                 <div className='category flex flex-col md:flex-row justify-between'>
                     <ProductFilterSideBar className='w-full md:w-1/5'/>
-                    <ProductGrid products={productList} className='w-4/5'/>
+                    <ProductGrid products={productList} className='w-4/5 h-max'/>
                 </div>
             </Container>
             <Footer/>

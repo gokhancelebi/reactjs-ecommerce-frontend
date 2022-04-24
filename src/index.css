@@ -14,7 +14,11 @@ code {
 *{
   box-sizing: border-box;
 }
-
+.sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 50px;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
