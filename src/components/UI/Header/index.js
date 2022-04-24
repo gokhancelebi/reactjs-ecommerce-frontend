@@ -5,6 +5,13 @@ import {Link} from 'react-router-dom';
 
 
 const Header = (props) => {
+    const isLoggedInInformation = localStorage.getItem('loggedInInformation');
+
+    let myAccountLink = '/login?redirect_to=/my-account/orders';
+
+    if (isLoggedInInformation === 'true'){
+        myAccountLink = '/my-account/orders';
+    }
 
     return (
         <div className='flex flex-col gap-5'>
@@ -22,17 +29,17 @@ const Header = (props) => {
                     <div className="header__menu-items">
                         <ul className='flex gap-5'>
                             <li>
-                                <Link to="/login">
+                                <Link to={myAccountLink}>
                                     <img src={myAccountIcon} alt=""/>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#">
+                                <Link to="/my-account/wishlist">
                                     <img src={wishListIcon} alt=""/>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#">
+                                <Link to="/cart">
                                     <img src={shoppigBagIcon} alt=""/>
                                 </Link>
                             </li>
@@ -46,10 +53,10 @@ const Header = (props) => {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/c/products">Products</Link>
+                        <Link to="/c/products/1">Products</Link>
                     </li>
                     <li>
-                        <Link to="/c/services">Services</Link>
+                        <Link to="/c/services/2">Services</Link>
                     </li>
                     <li>
                         <Link to="/contact">Contact</Link>

@@ -23,17 +23,21 @@ const LoginPage = () => {
     }
 
     return (
-        <div>
-            <Container className='gap-5 my-5'>
-                <Header/>
-                <Form onSubmit={handleLogin} className='max-w-4xl mx-auto'>
-                    <input className='form-control' type="text" placeholder="Username"/>
-                    <input className='form-control' type="password" placeholder="Password"/>
-                    <button className='form-control'>Login</button>
-                </Form>
-            </Container>
-            <Footer/>
-        </div>
+        <>
+            {isLoggedIn === 'false' &&
+                <div>
+                    <Container className='gap-5 my-5'>
+                        <Header/>
+                        <Form onSubmit={handleLogin} className='max-w-4xl mx-auto'>
+                            <input className='form-control' type="text" placeholder="Username"/>
+                            <input className='form-control' type="password" placeholder="Password"/>
+                            <button className='form-control'>Login</button>
+                        </Form>
+                    </Container>
+                    <Footer/>
+                </div>
+            }
+        </>
     );
 };
 

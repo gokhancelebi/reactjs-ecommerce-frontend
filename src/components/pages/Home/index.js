@@ -82,7 +82,7 @@ const Home = (props) => {
 
     return (
         <>
-            <Container className='gap-5 my-5'>
+            <Container>
                 <Header/>
                 <ProductGrid products={productList}/>
             </Container>
