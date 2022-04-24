@@ -1,8 +1,11 @@
+
+import Container from "../../UI/Container";
+
 const WishList = () => {
   return (
-    <div>
-      <h1>WishList</h1>
-    </div>
+      <Container>
+        <h1>WishList</h1>
+      </Container>
   );
 };
 
