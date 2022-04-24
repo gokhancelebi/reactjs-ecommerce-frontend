@@ -4,11 +4,11 @@ const ProductGrid = (props) => {
 
     let col = "md:grid-cols-4";
 
-    if (props.col == "4") {
+    if (props.col === "4") {
         col = "md:grid-cols-4";
     }
 
-    if (props.col == "5") {
+    if (props.col === "5") {
         col = "md:grid-cols-5";
     }
 
