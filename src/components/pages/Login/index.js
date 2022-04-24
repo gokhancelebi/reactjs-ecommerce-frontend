@@ -4,8 +4,6 @@ import Header from "../../UI/Header";
 import Footer from "../../UI/Footer";
 import Form from "../../UI/Form";
 
-// import './index.scss';
-
 const LoginPage = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('loggedInInformation'));
