@@ -1,6 +1,6 @@
 const ProductFilterSideBar = props => {
 
-    let classNames = 'flex flex-col md:pr-4 pb-96';
+    let classNames = 'flex flex-col md:pr-4 pb-26';
 
     if (props.className) {
         classNames += ` ${props.className}`;
@@ -87,8 +87,6 @@ const ProductFilterSideBar = props => {
                     </li>
                 </ul>
             </div>
-
-
 
             <div className='mb-4 p-2 pb-4 border-b border-b-gray-500 bg-gray-200'>
                 <h3 className='pb-3'>Platforms</h3>
