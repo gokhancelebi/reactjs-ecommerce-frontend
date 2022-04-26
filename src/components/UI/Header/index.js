@@ -15,6 +15,14 @@ const Header = (props) => {
 
     return (
         <div className='flex flex-col gap-5'>
+            <div className="flex justify-between">
+                <div></div>
+                <div className="flex">
+                    <Link to={myAccountLink}>
+                        Siparişlerim
+                    </Link>
+                </div>
+            </div>
             <div className="flex flex-col md:flex-row justify-between items-center gap-5 md:gap-0">
                 <div className="header__logo">
                     <h1>DEMO<b>COMMERCE</b></h1>

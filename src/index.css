@@ -19,6 +19,9 @@ code {
   position: sticky;
   bottom: 50px;
 }
+.swiper{
+  max-width: 100%;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

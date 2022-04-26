@@ -3,6 +3,13 @@ import Footer from "../../UI/Footer";
 import Container from "../../UI/Container";
 import ProductGrid from "../../UI/ProductGrid";
 
+import {Swiper,SwiperSlide} from "swiper/react";
+import {Navigation} from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
 const Home = (props) => {
 
     const productList = [
@@ -84,6 +91,9 @@ const Home = (props) => {
         <>
             <Container>
                 <Header/>
+                <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                    <SwiperSlide><img src="https://via.placeholder.com/1280x400" alt=""/></SwiperSlide>
+                </Swiper>
                 <ProductGrid title='En Son Eklenenler' products={productList}  col='5' limit='5'/>
                 <ProductGrid title='Öne Çıkanlar' products={productList}  col='5' limit='5'/>
                 <ProductGrid title='İndirimdekiler' products={productList}  col='5' limit='5'/>
