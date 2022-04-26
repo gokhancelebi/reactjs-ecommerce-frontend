@@ -10,13 +10,11 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper";
-import {useEffect} from "react";
+// import {useEffect} from "react";
 
 const ProductSingle = props => {
 
-    const SetActiveTab = (tab) => {
 
-    }
 
     return (
         <>
@@ -51,7 +49,7 @@ const ProductSingle = props => {
                 <div>
                     <div className="flex flex-col gap-10">
                         <div className="tab-titles">
-                            <div className="tab-title active" onClick={setActiveTab}>Description</div>
+                            <div className="tab-title active">Description</div>
                             <div className="tab-title" data-tab-id='reviews'>Reviews</div>
                         </div>
                         <div className="tab-contents">
