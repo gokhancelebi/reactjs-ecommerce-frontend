@@ -1,6 +1,8 @@
 import Container from "../../UI/Container";
 import Header from "../../UI/Header";
 
+import {useState} from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,8 +15,7 @@ import { Navigation } from "swiper";
 // import {useEffect} from "react";
 
 const ProductSingle = props => {
-
-
+    const [activeTab, setActiveTab] = useState('description');
 
     return (
         <>
@@ -47,13 +48,13 @@ const ProductSingle = props => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex flex-col gap-10">
+                    <div className="flex md:flex-col gap-10">
                         <div className="tab-titles">
-                            <div className="tab-title active">Description</div>
+                            <div className="tab-title">Description</div>
                             <div className="tab-title" data-tab-id='reviews'>Reviews</div>
                         </div>
                         <div className="tab-contents">
-                            <div className="tab-content active" id='description'>
+                            <div className="tab-content" id='description'>
                                 Açıklama
                             </div>
                             <div className="tab-content" id='reviews'>

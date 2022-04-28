@@ -10,6 +10,8 @@ import {Navigation} from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import {useEffect} from "react";
+
 const Home = (props) => {
 
     const productList = [
@@ -87,12 +89,22 @@ const Home = (props) => {
         }
     ];
 
+    useEffect(() => {
+        // add preload to head
+        const preload = document.createElement("link");
+        preload.rel = "preload";
+        preload.href = "https://via.placeholder.com/1280x400";
+        preload.as = "image";
+        document.head.appendChild(preload);
+
+    }, []);
+    
     return (
         <>
             <Container>
                 <Header/>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                    <SwiperSlide><img src="https://via.placeholder.com/1280x400" alt=""/></SwiperSlide>
+                    <SwiperSlide><img src="https://via.placeholder.com/1280x400" alt="Big Image" className='w-full' /></SwiperSlide>
                 </Swiper>
                 <ProductGrid title='En Son Eklenenler' products={productList}  col='5' limit='5'/>
                 <ProductGrid title='Öne Çıkanlar' products={productList}  col='5' limit='5'/>
