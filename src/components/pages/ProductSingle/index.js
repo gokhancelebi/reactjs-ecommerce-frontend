@@ -21,18 +21,13 @@ const ProductSingle = props => {
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
-        makeTabsHidden();
-    }, [activeTab]);
-
-
-    const makeTabsHidden  = () => {
         let newTabs = [];
         for (let i = 0; i < tabCoun; i++) {
             newTabs.push('hidden');
         }
         newTabs[activeTab] = 'block';
         setTabClasses(newTabs);
-    };
+    }, [activeTab]);
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
