@@ -22,13 +22,15 @@ const ProductSingle = props => {
     const tabCount = 2;
     const [tabClasses, setTabClasses] = useState([]);
     const [quantity, setQuantity] = useState(1);
-    const [productId,setProductId] = useState(1);
+    const [productId, setProductId] = useState(1);
     const [productName] = useState("Product 1");
     const [productPrice] = useState(25);
     const [productImage] = useState("https://via.placeholder.com/300x300");
+    const {id} = useParams();
 
-    let id = useParams().id;
-    setProductId(id);
+    useEffect(() => {
+        setProductId(id);
+    },[]);
 
     useEffect(() => {
         let newTabs = [];
@@ -55,7 +57,7 @@ const ProductSingle = props => {
 
     const addToCartHandler = () => {
 
-        ShoppingCartLibrary.addItem(productId, productName, quantity,productPrice, productImage);
+        ShoppingCartLibrary.addItem(productId, productName, quantity, productPrice, productImage);
     };
 
     return (
@@ -65,7 +67,8 @@ const ProductSingle = props => {
                 <div className="flex flex-col md:flex-row justify-between">
                     <div className='w-full md:w-1/2'>
                         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                            <SwiperSlide><img src="https://via.placeholder.com/640x400" alt="" className='w-full'/></SwiperSlide>
+                            <SwiperSlide><img src="https://via.placeholder.com/640x400" alt=""
+                                              className='w-full'/></SwiperSlide>
                         </Swiper>
                     </div>
                     <div className='w-full md:w-1/2 md:pl-5 flex flex-col gap-5'>
@@ -73,28 +76,38 @@ const ProductSingle = props => {
                             <h1 className='text-2xl'>Product Single</h1>
                             <div className='flex gap-2'>
                                 <div className="flex bg-gray-300 max-w-max">
-                                    <div className='px-1 cursor-pointer flex justify-center items-center' onClick={decreaseQuantity}>
+                                    <div className='px-1 cursor-pointer flex justify-center items-center'
+                                         onClick={decreaseQuantity}>
                                         -
                                     </div>
                                     <div>
-                                        <input type="number" className='max-w-[3rem] py-2 text-center' name='quantity' value={quantity}  min={1}  onChange={quantityChangeHandler}/>
+                                        <input type="number" className='max-w-[3rem] py-2 text-center' name='quantity'
+                                               value={quantity} min={1} onChange={quantityChangeHandler}/>
                                     </div>
-                                    <div className='px-1 cursor-pointer flex justify-center items-center' onClick={increaseQuantity}>
+                                    <div className='px-1 cursor-pointer flex justify-center items-center'
+                                         onClick={increaseQuantity}>
                                         +
                                     </div>
                                 </div>
-                                <button className='bg-orange-600 text-white p-2 hover:bg-orange-700' onClick={addToCartHandler}>Add To Cart</button>
+                                <button className='bg-orange-600 text-white p-2 hover:bg-orange-700'
+                                        onClick={addToCartHandler}>Add To Cart
+                                </button>
                             </div>
                         </div>
                         <div className="bg-gray-100 p-5 flex flex-col  gap-10">
-                            lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, doloremque, eaque, eius, eveniet, impedit ipsam ipsum laboriosam molestiae nam natus neque nisi nostrum obcaecati omnis quae quam quas quia quisquam quod ratione repellendus repudiandae sint sit tempore voluptate voluptates.
+                            lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, doloremque, eaque, eius,
+                            eveniet, impedit ipsam ipsum laboriosam molestiae nam natus neque nisi nostrum obcaecati
+                            omnis quae quam quas quia quisquam quod ratione repellendus repudiandae sint sit tempore
+                            voluptate voluptates.
                         </div>
                     </div>
                 </div>
                 <div>
                     <div className="flex flex-col gap-10">
                         <div className="tab-titles flex gap-2">
-                            <div className="tab-title cursor-pointer border border-black p-2" onClick={() => setActiveTab(0)}>Description</div>
+                            <div className="tab-title cursor-pointer border border-black p-2"
+                                 onClick={() => setActiveTab(0)}>Description
+                            </div>
                             {/*<div className="tab-title cursor-pointer border border-black p-2" onClick={() => setActiveTab(1)}>Reviews</div>*/}
                         </div>
                         <div className="tab-contents border border-black p-2">
