@@ -22,15 +22,10 @@ const ProductSingle = props => {
     const tabCount = 2;
     const [tabClasses, setTabClasses] = useState([]);
     const [quantity, setQuantity] = useState(1);
-    const [productId, setProductId] = useState(1);
     const [productName] = useState("Product 1");
     const [productPrice] = useState(25);
     const [productImage] = useState("https://via.placeholder.com/300x300");
     const {id} = useParams();
-
-    useEffect(() => {
-        setProductId(id);
-    },[]);
 
     useEffect(() => {
         let newTabs = [];
@@ -56,8 +51,7 @@ const ProductSingle = props => {
     };
 
     const addToCartHandler = () => {
-
-        ShoppingCartLibrary.addItem(productId, productName, quantity, productPrice, productImage);
+        ShoppingCartLibrary.addItem(id, productName, quantity, productPrice, productImage);
     };
 
     return (

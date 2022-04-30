@@ -1,9 +1,17 @@
 import Container from "../../UI/Container";
 import Header from "../../UI/Header";
+import {useState} from "react";
 
 import ShoppingCartLibrary from "../../../classes/ShoppingCartLibrary";
 
 const ShoppingCart = (props) => {
+
+    const [cartItems, setCartItems] = useState(ShoppingCartLibrary.getItems());
+
+    const onDeleteButtonClickHandler = (e) => {
+        ShoppingCartLibrary.removeItem(e.target.id);
+        setCartItems(ShoppingCartLibrary.getItems());
+    }
 
     return (
         <Container>
@@ -13,7 +21,7 @@ const ShoppingCart = (props) => {
                 <div className='flex flex-col md:flex-row justify-between gap-10 md:gap-0'>
                     <div className='flex flex-row flex-wrap gap-5 w-full md:w-3/4'>
                         {
-                            ShoppingCartLibrary.getItems().map((item, index) => {
+                            cartItems.map((item, index) => {
                                 return (
                                     <div className='w-full p-2 bg-gray-300 w-full flex justify-between' key={index}>
                                         <div className='flex flex-row gap-5'>
@@ -23,7 +31,7 @@ const ShoppingCart = (props) => {
                                                 <p>${item.price}</p>
                                             </div>
                                         </div>
-                                        <div className='px-2 cursor-pointer h-5'>x</div>
+                                        <div className='px-2 cursor-pointer h-5' id={item.id} onClick={onDeleteButtonClickHandler}>x</div>
                                     </div>
                                 )
                             })

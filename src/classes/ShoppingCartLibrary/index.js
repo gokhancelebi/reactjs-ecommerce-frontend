@@ -25,7 +25,7 @@ class ShoppingCartLibrary {
         return JSON.parse(localStorage.getItem('cartItems'));
     }
 
-    static addItem(id, name, quantity, price,image){;
+    static addItem(id, name, quantity, price,image){
         let items = this.getItems();
         let item = items.find(item => item.id === id);
         if (item) {
@@ -39,7 +39,6 @@ class ShoppingCartLibrary {
                 image: image
             };
             items.push(item);
-            console.log('new item created');
         }
         localStorage.setItem('cartItems', JSON.stringify(items));
     }
@@ -47,10 +46,8 @@ class ShoppingCartLibrary {
     static removeItem(id){
         let items = this.getItems();
         let item = items.find(item => item.id === id);
-        if (item.quantity === 1) {
-            items = items.filter(item => item.id !== id);
-        } else {
-            item.quantity -= 1;
+        if (item) {
+            items.splice(items.indexOf(item), 1);
         }
         localStorage.setItem('cartItems', JSON.stringify(items));
     }
