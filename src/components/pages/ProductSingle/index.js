@@ -16,13 +16,13 @@ import {Navigation} from "swiper";
 
 const ProductSingle = props => {
     const [activeTab, setActiveTab] = useState(0);
-    const [tabCoun] = useState(2);
+    const tabCount = 2;
     const [tabClasses, setTabClasses] = useState([]);
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         let newTabs = [];
-        for (let i = 0; i < tabCoun; i++) {
+        for (let i = 0; i < tabCount; i++) {
             newTabs.push('hidden');
         }
         newTabs[activeTab] = 'block';
