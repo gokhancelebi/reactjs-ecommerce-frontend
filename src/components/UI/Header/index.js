@@ -37,7 +37,7 @@ const Header = (props) => {
                 <div></div>
                 <div className="flex">
                     <Link to={myAccountLink}>
-                        Siparişlerim
+                        Orders
                     </Link>
                 </div>
             </div>
