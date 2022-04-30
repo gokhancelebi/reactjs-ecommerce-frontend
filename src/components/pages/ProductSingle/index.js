@@ -28,9 +28,9 @@ const ProductSingle = props => {
     const [productImage] = useState("https://via.placeholder.com/300x300");
 
     let {id} = useParams();
+    id = parseInt(id);
 
     useEffect(() => {
-        id = parseInt(id);
         setProductId(id);
     }, []);
 
