@@ -1,16 +1,34 @@
 import myAccountIcon from './../../../img/my-account.png';
 import shoppigBagIcon from './../../../img/shopping-bag.png';
 import wishListIcon from './../../../img/wishlist.png';
+import searchIcon from './../../../img/search.png';
 import {Link} from 'react-router-dom';
 
+import {useState,useEffect} from "react";
 
 const Header = (props) => {
+
     const isLoggedInInformation = localStorage.getItem('loggedInInformation');
 
     let myAccountLink = '/login?redirect_to=/my-account/orders';
 
     if (isLoggedInInformation === 'true'){
         myAccountLink = '/my-account/orders';
+    }
+
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchInputClasses, setSearchInputClasses] = useState('hidden md:block');
+
+
+    const onClickSearchBar = (e) => {
+
+        if (isSearchOpen === false){
+            setSearchInputClasses('block md:hidden');
+            setIsSearchOpen(true);
+        } else {
+            setSearchInputClasses('hidden md:block');
+            setIsSearchOpen(false);
+        }
     }
 
     return (
@@ -28,16 +46,13 @@ const Header = (props) => {
                     <h1>DEMO<b>COMMERCE</b></h1>
                 </div>
                 <div className="header__menu flex flex-col md:flex-row justify-center md:justify-between gap-5 items-center">
-                    <div className="search-bar hidden md:block">
+                    <div className={searchInputClasses}>
                         <input type="text" placeholder="Search"  className='border border-1 border-black p-0.5 px-2'/>
-                        {/*<button>*/}
-                        {/*    <i className="fas fa-search"></i>*/}
-                        {/*</button>*/}
                     </div>
                     <div className="header__menu-items">
                         <ul className='flex gap-5'>
                             <li className='md:hidden'>
-                                <i className="fas fa-search"></i>
+                                <img src={searchIcon} alt="" style={{maxWidth:'20px'}} onClick={onClickSearchBar}/>
                             </li>
                             <li>
                                 <Link to={myAccountLink}>

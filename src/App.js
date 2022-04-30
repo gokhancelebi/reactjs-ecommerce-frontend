@@ -2,15 +2,27 @@ import {Route,Routes} from "react-router-dom";
 import React, {useEffect} from "react";
 
 // import without lazy loading
-import Home from "./components/pages/Home";
-import LoginPage from "./components/pages/Login";
-import CategoryPage from "./components/pages/Category";
-import NotFound from "./components/pages/NotFound";
-import ProductSingle from "./components/pages/ProductSingle";
-import Orders from "./components/pages/Orders";
-import WishList from "./components/pages/WishList";
-import ShoppingCart from "./components/pages/ShoppingCart";
-import Contact from "./components/pages/Contact";
+// import Home from "./components/pages/Home";
+// import LoginPage from "./components/pages/Login";
+// import CategoryPage from "./components/pages/Category";
+// import NotFound from "./components/pages/NotFound";
+// import ProductSingle from "./components/pages/ProductSingle";
+// import Orders from "./components/pages/Orders";
+// import WishList from "./components/pages/WishList";
+// import ShoppingCart from "./components/pages/ShoppingCart";
+// import Contact from "./components/pages/Contact";
+
+// import with lazyloading
+const Home = React.lazy(() => import("./components/pages/Home"));
+const LoginPage = React.lazy(() => import("./components/pages/Login"));
+const CategoryPage = React.lazy(() => import("./components/pages/Category"));
+const NotFound = React.lazy(() => import("./components/pages/NotFound"));
+const ProductSingle = React.lazy(() => import("./components/pages/ProductSingle"));
+const Orders = React.lazy(() => import("./components/pages/Orders"));
+const WishList = React.lazy(() => import("./components/pages/WishList"));
+const ShoppingCart = React.lazy(() => import("./components/pages/ShoppingCart"));
+const Contact = React.lazy(() => import("./components/pages/Contact"));
+
 
 
 const App = () => {

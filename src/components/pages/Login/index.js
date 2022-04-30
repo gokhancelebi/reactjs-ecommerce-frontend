@@ -6,7 +6,18 @@ import Form from "../../UI/Form";
 
 const LoginPage = () => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('loggedInInformation'));
+
+
+    const [isLoggedIn, setIsLoggedIn] = useState("false");
+
+    useEffect(() => {
+        document.title = "Login";
+        if(!localStorage.getItem("loggedInInformation")){
+            localStorage.setItem("loggedInInformation", 'false');
+        }
+        setIsLoggedIn(localStorage.getItem("loggedInInformation"));
+    }, []);
+
 
     useEffect(() => {
         if (isLoggedIn === 'true') {

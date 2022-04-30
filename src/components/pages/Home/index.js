@@ -106,9 +106,9 @@ const Home = (props) => {
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                     <SwiperSlide><img src="https://via.placeholder.com/1280x400" alt="Big Image" className='w-full' /></SwiperSlide>
                 </Swiper>
-                <ProductGrid title='En Son Eklenenler' products={productList}  col='5' limit='5'/>
-                <ProductGrid title='Öne Çıkanlar' products={productList}  col='5' limit='5'/>
-                <ProductGrid title='İndirimdekiler' products={productList}  col='5' limit='5'/>
+                <ProductGrid title='Latest' products={productList}  col='5' limit='5'/>
+                <ProductGrid title='Featured' products={productList}  col='5' limit='5'/>
+                <ProductGrid title='Offers' products={productList}  col='5' limit='5'/>
             </Container>
             <Footer/>
         </>
