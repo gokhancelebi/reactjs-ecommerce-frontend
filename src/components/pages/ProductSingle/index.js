@@ -20,7 +20,7 @@ const ProductSingle = props => {
     const [tabClasses, setTabClasses] = useState([]);
     const [quantity, setQuantity] = useState(1);
 
-    useEffect((prevState) => {
+    useEffect(() => {
         makeTabsHidden();
     }, [activeTab]);
 

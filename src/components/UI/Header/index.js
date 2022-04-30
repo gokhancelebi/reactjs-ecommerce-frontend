@@ -4,7 +4,7 @@ import wishListIcon from './../../../img/wishlist.png';
 import searchIcon from './../../../img/search.png';
 import {Link} from 'react-router-dom';
 
-import {useState,useEffect} from "react";
+import {useState} from "react";
 
 const Header = (props) => {
 
