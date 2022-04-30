@@ -18,8 +18,7 @@ const Pagination = (props) => {
             key={page}
             className={page === currentPage ? 'bg-blue-500' : ''}
           >
-            <a
-              href="#"
+            <button
               className='text-gray-600 hover:text-gray-800 bg-gray-300 p-2'
               onClick={(e) => {
                 e.preventDefault();
@@ -27,7 +26,7 @@ const Pagination = (props) => {
               }}
             >
               {page}
-            </a>
+            </button>
           </li>
         ))}
       </ul>
