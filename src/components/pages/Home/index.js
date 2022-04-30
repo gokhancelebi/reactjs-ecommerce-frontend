@@ -104,7 +104,7 @@ const Home = (props) => {
             <Container>
                 <Header/>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                    <SwiperSlide><img src="https://via.placeholder.com/1280x400" alt="Big Image" className='w-full' /></SwiperSlide>
+                    <SwiperSlide><img src="https://via.placeholder.com/1280x400" alt="Big" className='w-full' /></SwiperSlide>
                 </Swiper>
                 <ProductGrid title='Latest' products={productList}  col='5' limit='5'/>
                 <ProductGrid title='Featured' products={productList}  col='5' limit='5'/>
