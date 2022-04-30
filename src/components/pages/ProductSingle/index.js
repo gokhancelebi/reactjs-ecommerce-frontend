@@ -25,7 +25,7 @@ const ProductSingle = props => {
     const [productId,setProductId] = useState(1);
     const [productName] = useState("Product 1");
     const [productPrice] = useState(25);
-    const [productImage,setProductImage] = useState("https://via.placeholder.com/300x300");
+    const [productImage] = useState("https://via.placeholder.com/300x300");
 
     let {id} = useParams();
 
