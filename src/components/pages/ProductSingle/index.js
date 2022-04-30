@@ -27,12 +27,8 @@ const ProductSingle = props => {
     const [productPrice] = useState(25);
     const [productImage] = useState("https://via.placeholder.com/300x300");
 
-    let {id} = useParams();
-    id = parseInt(id);
-
-    useEffect(() => {
-        setProductId(id);
-    }, []);
+    let id = useParams().id;
+    setProductId(id);
 
     useEffect(() => {
         let newTabs = [];
