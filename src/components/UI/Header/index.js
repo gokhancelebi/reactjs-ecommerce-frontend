@@ -81,9 +81,9 @@ const Header = (props) => {
                     <li>
                         <Link to="/c/products/1">Products</Link>
                     </li>
-                    <li>
-                        <Link to="/c/services/2">Services</Link>
-                    </li>
+                    {/*<li>*/}
+                    {/*    <Link to="/c/services/2">Services</Link>*/}
+                    {/*</li>*/}
                     <li>
                         <Link to="/contact">Contact</Link>
                     </li>

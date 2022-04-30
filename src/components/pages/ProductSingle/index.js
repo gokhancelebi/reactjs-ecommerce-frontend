@@ -6,19 +6,33 @@ import {useState, useEffect} from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
+// import required swiper modules
+import {Navigation} from "swiper";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
-// import required modules
-import {Navigation} from "swiper";
-
+import ShoppingCartLibrary from "../../../classes/ShoppingCartLibrary";
+import {useParams} from "react-router-dom";
 
 const ProductSingle = props => {
+
     const [activeTab, setActiveTab] = useState(0);
     const tabCount = 2;
     const [tabClasses, setTabClasses] = useState([]);
     const [quantity, setQuantity] = useState(1);
+    const [productId,setProductId] = useState(1);
+    const [productName] = useState("Product 1");
+    const [productPrice] = useState(25);
+    const [productImage,setProductImage] = useState("https://via.placeholder.com/300x300");
+
+    let {id} = useParams();
+
+    useEffect(() => {
+        id = parseInt(id);
+        setProductId(id);
+    }, []);
 
     useEffect(() => {
         let newTabs = [];
@@ -30,7 +44,7 @@ const ProductSingle = props => {
     }, [activeTab]);
 
     const increaseQuantity = () => {
-        setQuantity(quantity + 1);
+        setQuantity((quantity) => quantity + 1);
     };
 
     const decreaseQuantity = () => {
@@ -43,14 +57,19 @@ const ProductSingle = props => {
         setQuantity(parseInt(e.target.value));
     };
 
+    const addToCartHandler = () => {
+
+        ShoppingCartLibrary.addItem(productId, productName, quantity,productPrice, productImage);
+    };
+
     return (
         <>
             <Container>
                 <Header/>
-                <div className="flex justify-between">
+                <div className="flex flex-col md:flex-row justify-between">
                     <div className='w-full md:w-1/2'>
                         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                            <SwiperSlide><img src="https://via.placeholder.com/640x400" alt=""/></SwiperSlide>
+                            <SwiperSlide><img src="https://via.placeholder.com/640x400" alt="" className='w-full'/></SwiperSlide>
                         </Swiper>
                     </div>
                     <div className='w-full md:w-1/2 md:pl-5 flex flex-col gap-5'>
@@ -68,7 +87,7 @@ const ProductSingle = props => {
                                         +
                                     </div>
                                 </div>
-                                <button className='bg-orange-600 text-white p-2'>Add To Cart</button>
+                                <button className='bg-orange-600 text-white p-2 hover:bg-orange-700' onClick={addToCartHandler}>Add To Cart</button>
                             </div>
                         </div>
                         <div className="bg-gray-100 p-5 flex flex-col  gap-10">
@@ -77,10 +96,10 @@ const ProductSingle = props => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex md:flex-col gap-10">
+                    <div className="flex flex-col gap-10">
                         <div className="tab-titles flex gap-2">
                             <div className="tab-title cursor-pointer border border-black p-2" onClick={() => setActiveTab(0)}>Description</div>
-                            <div className="tab-title cursor-pointer border border-black p-2" onClick={() => setActiveTab(1)}>Reviews</div>
+                            {/*<div className="tab-title cursor-pointer border border-black p-2" onClick={() => setActiveTab(1)}>Reviews</div>*/}
                         </div>
                         <div className="tab-contents border border-black p-2">
                             <div className={tabClasses[0]}>
