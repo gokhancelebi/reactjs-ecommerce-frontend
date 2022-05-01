@@ -52,6 +52,25 @@ class ShoppingCartLibrary {
         localStorage.setItem('cartItems', JSON.stringify(items));
     }
 
+    static updateItemQuantity(id,quantity){
+        let items = this.getItems();
+        let item = items.find(item => item.id === id);
+        if (item) {
+            item.quantity = quantity;
+        }
+        localStorage.setItem('cartItems', JSON.stringify(items));
+    }
+
+    static updateItemPrice(id,price){
+        price = parseFloat(price);
+        let items = this.getItems();
+        let item = items.find(item => item.id === id);
+        if (item) {
+            item.price = price;
+        }
+        localStorage.setItem('cartItems', JSON.stringify(items));
+    }
+
     static clear(){
         localStorage.setItem('cartItems', JSON.stringify([]));
     }
